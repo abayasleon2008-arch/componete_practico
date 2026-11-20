@@ -1,0 +1,41 @@
+<script>
+    let ingreso = prompt("Ingrese un número para calcular su potencia:");
+    let base = Number(ingreso);
+    let exponente = prompt("Ingrese el exponente:");
+    let exp = Number(exponente);
+
+    switch (exp) {
+        case 0:
+            let resultado = 1;
+            console.log("El resultado es: " + resultado);
+            document.write("<h1>El resultado es: " + resultado + "</h1>");
+            break;
+        case 1:
+            let resultado1 = base;
+            console.log("El resultado es: " + resultado1);
+            document.write("<h1>El resultado es: " + resultado1 + "</h1>");
+            break;
+        default:
+            let negativo = exp < 0;
+            if (negativo) {
+                exp = -exp;
+            }
+
+            let cont = 0;
+            let resultado2 = 1;
+            while (cont < exp) {
+                resultado2 = resultado2 * base;
+                cont++;
+            }
+
+            if (negativo) {
+                resultado2 = 1 / resultado2;
+                console.log("El resultado es: " + resultado2);
+                document.write("<h1>El resultado es: " + resultado2 + "</h1>");
+            } else {
+                console.log("El resultado es: " + resultado2);
+                document.write("<h1>El resultado es: " + resultado2 + "</h1>");
+            }
+            break;
+    }
+</script>

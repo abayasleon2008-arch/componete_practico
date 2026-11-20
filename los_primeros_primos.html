@@ -1,0 +1,40 @@
+<script>
+    let primos =0 ;
+    let cont = 0 ;
+    let cont10= 0 ;
+    let cont20= 0;
+    while (primos< 10 ) {
+        cont++;
+        if(esPrimo(cont)) {
+            document.write(cont + "<br>")
+            if (cont >= 1 && cont <= 10) {
+              cont10++;
+            }
+            if (cont >= 15 && cont <= 25) {
+              cont20++;
+            }
+
+         }
+        function esPrimo(numero) {
+            if (numero <= 1) {
+             return false;
+            }
+
+            for (let i = 2; i < numero; i++) {
+             if (numero % i == 0) {
+                  return false;
+                  primos--;
+
+                 }
+                }
+               
+               
+                primos++;
+              return true;
+        } 
+      
+
+    }
+    document.write("La cantidad numeros primos entre el 1-10 son:  " + cont10 + "<br>")
+    document.write("La cantidad numeros primos entre el 15-25 son:  " + cont20 )
+</script>

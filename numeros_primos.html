@@ -1,0 +1,27 @@
+
+  <script>
+
+    let entrada = prompt("Ingrese un número para saber si es primo o no:");
+    let num = Number(entrada);
+ 
+    if (esPrimo(num)){
+      document.write(num + " Es primo" + "<br>")
+    } else {
+      document.write(num + " No es primo" + "<br>") 
+    }
+    function esPrimo(numero) {
+        if (numero <= 1) {
+          return false;
+        }
+
+        for (let i = 2; i < numero; i++) {
+         if (numero % i == 0) {
+            return false;
+         }
+       }
+
+        return true;
+      }
+      
+  </script>
+

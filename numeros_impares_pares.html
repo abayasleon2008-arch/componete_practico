@@ -1,0 +1,26 @@
+<script>
+    
+     document.write("<h1>Numeros Pares e Impares</h1>");
+        let cantidad = prompt("Ingrese la cantidad de números que desea generar:");
+        let num = Number(cantidad);
+        let contador = 0;
+        let resultadosuma = 0;
+        let resultadomultiplicacion = 1;
+      
+    while (contador < cantidad){
+        const entero0a10 = Math.floor(Math.random() * num)+ 1 ; // 0 a 10
+        let randomNum = entero0a10;
+      if (randomNum % 2 === 0) {
+                console.log(randomNum + " es un número par.");
+                document.write(randomNum + " es un número par.<br>");
+              resultadosuma = resultadosuma + randomNum;
+            } else {
+                console.log(randomNum + " es un número impar.");
+                document.write(randomNum + " es un número impar.<br>");
+               resultadomultiplicacion = resultadomultiplicacion * randomNum;
+            }  
+        contador++;
+    }
+    document.write("<h2>La suma de los números pares es: " + resultadosuma + "</h2>");
+    document.write("<h2>La multiplicación de los números impares es: " + resultadomultiplicacion + "</h2>");
+</script>
