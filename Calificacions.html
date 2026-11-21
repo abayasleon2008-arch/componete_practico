@@ -1,0 +1,32 @@
+<script>
+    document.write(`Informacion: <br>`)
+    document.write("A: Sobresaliente <br>")
+    document.write("B: Muy bueno <br>")
+    document.write("C: Bueno <br>")
+    document.write('D: Regular <br>')
+    document.write("E: Deficiente <br>")
+    let cont = 10;
+    while(cont> 0){
+        let calificacion = Number(prompt("Escriba la calificacion en el rango establecido (1 - 20 ) \n Terminar el inreso de calificaciones toque la tecla cancelar \n numeos de intentos disponibles " + cont ))
+      
+        switch(true){
+            case calificacion < 10:
+                document.write( calificacion + " su calificacion es: E <br>")
+            case 9 < calificacion < 13:
+                document.write( calificacion + " su calificacion es: D <br>")
+            case 12< calificacion< 16:
+                document.write( calificacion + " su calificacion es: C <br>")
+            case 15< calificacion < 18: 
+                document.write( calificacion + " su calificacion es: B <br>")
+            case 18 < document < 21:
+                document.write( calificacion + " su calificacion es: A <br>" )
+        }
+       
+       cont--;
+    }   
+
+          
+       
+   
+
+</script>
