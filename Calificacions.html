@@ -1,43 +1,87 @@
+
 <script>
-    document.write(`Informacion: <br>`)
-    document.write("A: Sobresaliente <br>")
-    document.write("B: Muy bueno <br>")
-    document.write("C: Bueno <br>")
-    document.write('D: Regular <br>')
-    document.write("E: Deficiente <br>")
+
+    // document.write() permite escribir información directamente
+    // en el documento HTML. Se utiliza <br> para realizar saltos de línea.
+
+    document.write(`Informacion: <br>`);
+
+    // Se muestran las equivalencias de las calificaciones.
+    document.write("A: Sobresaliente <br>");
+    document.write("B: Muy bueno <br>");
+    document.write("C: Bueno <br>");
+    document.write('D: Regular <br>');
+    document.write("E: Deficiente <br>");
+
+
+    // Se declara la variable cont y se le asigna el valor 10.
+    // Esta variable controla cuántas calificaciones se van a ingresar.
+
     let cont = 10;
-   
-while (cont > 0) {
 
-    let calificacion = Number(prompt("Escriba la calificación (0 - 20):"));
 
-    switch (true) {
+    // El ciclo while se ejecutará mientras la variable cont
+    // sea mayor que cero. En este caso, permitirá ingresar
+    // y evaluar un total de 10 calificaciones.
 
-        case calificacion >= 0 && calificacion <= 9:
-            document.write(calificacion + " su calificación es: E <br>");
-            break;
+    while (cont > 0) {
 
-        case calificacion >= 10 && calificacion <= 12:
-            document.write(calificacion + " su calificación es: D <br>");
-            break;
+        // Se utiliza prompt() para solicitar una calificación
+        // al usuario mediante una ventana emergente.
+        // Number() convierte el dato ingresado a un valor numérico.
 
-        case calificacion >= 13 && calificacion <= 15:
-            document.write(calificacion + " su calificación es: C <br>");
-            break;
+        let calificacion = Number(prompt("Escriba la calificación (0 - 20):"));
 
-        case calificacion >= 16 && calificacion <= 17:
-            document.write(calificacion + " su calificación es: B <br>");
-            break;
 
-        case calificacion >= 18 && calificacion <= 20:
-            document.write(calificacion + " su calificación es: A <br>");
-            break;
+        // switch(true) permite evaluar diferentes condiciones
+        // booleanas. Cada case comprueba si la calificación
+        // ingresada pertenece a un determinado intervalo.
 
-        default:
-            document.write("Calificación fuera del rango permitido <br>");
-            break;
+        switch (true) {
+
+            // Si la calificación está entre 0 y 9,
+            // se asigna la categoría E (Deficiente).
+            case calificacion >= 0 && calificacion <= 9:
+                document.write(calificacion + " su calificación es: E <br>");
+                break;
+
+            // Si la calificación está entre 10 y 12,
+            // se asigna la categoría D (Regular).
+            case calificacion >= 10 && calificacion <= 12:
+                document.write(calificacion + " su calificación es: D <br>");
+                break;
+
+            // Si la calificación está entre 13 y 15,
+            // se asigna la categoría C (Bueno).
+            case calificacion >= 13 && calificacion <= 15:
+                document.write(calificacion + " su calificación es: C <br>");
+                break;
+
+            // Si la calificación está entre 16 y 17,
+            // se asigna la categoría B (Muy bueno).
+            case calificacion >= 16 && calificacion <= 17:
+                document.write(calificacion + " su calificación es: B <br>");
+                break;
+
+            // Si la calificación está entre 18 y 20,
+            // se asigna la categoría A (Sobresaliente).
+            case calificacion >= 18 && calificacion <= 20:
+                document.write(calificacion + " su calificación es: A <br>");
+                break;
+
+            // default se ejecuta cuando ninguna de las condiciones
+            // anteriores se cumple. Indica que la calificación
+            // está fuera del rango permitido.
+            default:
+                document.write("Calificación fuera del rango permitido <br>");
+                break;
+        }
+
+        // cont-- resta una unidad al contador en cada repetición.
+        // Cuando cont llega a cero, la condición del while deja
+        // de cumplirse y el ciclo termina.
+
+        cont--;
     }
 
-    cont--;
-}
 </script>

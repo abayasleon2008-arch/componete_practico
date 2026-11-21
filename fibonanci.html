@@ -1,20 +1,80 @@
-<script>    
+
+<script>
+
+    // Variable a: almacena el primer número de referencia
+    // para generar la sucesión de Fibonacci.
     let a = 0;
+
+    // Variable contador: controla la cantidad de números
+    // que se han generado. Se inicializa en cero.
     let contador = 0;
-    let b = 1;  
+
+    // Variable b: almacena el segundo número de la sucesión.
+    let b = 1;
+
+    // Variable fib: almacena el número actual de Fibonacci.
     let fib = 0;
+
+    // prompt() muestra una ventana emergente que solicita
+    // al usuario indicar cuántos números de Fibonacci desea generar.
+    // El dato ingresado inicialmente se almacena como texto.
+
     let cantidad = prompt("Ingrese la cantidad de números de Fibonacci que desea generar:");
+
+
+    // Number() convierte el dato ingresado por el usuario
+    // de texto a un valor numérico para poder realizar comparaciones.
+
     cantidad = Number(cantidad);
-   while (contador < cantidad) {
+
+    // El ciclo while se ejecuta mientras contador sea menor
+    // que la cantidad solicitada por el usuario.
+    // Esto permite generar exactamente la cantidad de números indicada.
+
+    while (contador < cantidad) {
+
+        // Se comprueba si estamos en las dos primeras posiciones
+        // de la sucesión de Fibonacci.
+
         if (contador <= 1) {
+
+            // Si contador es 0 o 1, se asigna directamente
+            // su valor a la variable fib.
+            // De esta manera se generan los primeros números: 0 y 1.
+
             fib = contador;
+
         } else {
+
+            // A partir del tercer número, se suman los dos
+            // números anteriores para obtener el siguiente Fibonacci.
+
             fib = a + b;
+
+            // Se actualiza la variable a con el valor que
+            // anteriormente tenía la variable b.
             a = b;
+
+            // Se actualiza la variable b con el nuevo número Fibonacci.
+            // Así se preparan los valores para la siguiente repetición.
             b = fib;
         }
+
+        // console.log() muestra cada número generado
+        // en la consola del navegador.
+
         console.log(fib);
+
+        // document.write() muestra cada número en la página web.
+        // <br> permite colocar cada número en una línea diferente.
+
         document.write(fib + "<br>");
+
+        // Se incrementa contador en una unidad.
+        // Esto permite avanzar a la siguiente posición
+        // y controlar la cantidad de números generados.
+
         contador++;
     }
+
 </script>

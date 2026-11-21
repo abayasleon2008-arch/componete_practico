@@ -1,11 +1,53 @@
+
 <script>
+
+    // prompt() muestra una ventana emergente que solicita
+    // al usuario ingresar un número para calcular su factorial.
+    // Inicialmente, el dato se almacena como una cadena de texto.
+
     let num = prompt("Ingrese un número para calcular su factorial:");
+
+    // Se declara la variable factorial y se inicializa en 1.
+    // Se utiliza el valor 1 porque es el elemento neutro
+    // de la multiplicación y permite acumular los resultados.
+
     let factorial = 1;
+
+    // Number() convierte el dato ingresado por el usuario
+    // de texto a un valor numérico para realizar operaciones.
+
     num = Number(num);
+
+    // El ciclo while se ejecuta mientras num sea mayor que 1.
+    // En cada repetición se multiplica factorial por num
+    // y posteriormente se disminuye num en una unidad.
+
     while (num > 1) {
+
+        // Se multiplica el valor acumulado de factorial
+        // por el número actual y se guarda el nuevo resultado.
+        // Es equivalente a: factorial = factorial * num.
+
         factorial *= num;
+
+
+        // Se disminuye el valor de num en una unidad.
+        // Esto permite continuar multiplicando por los números
+        // anteriores hasta llegar a 1.
+
         num--;
     }
+
+    // console.log() muestra el resultado del factorial
+    // en la consola del navegador para que pueda ser consultado.
+
     console.log("El factorial es: " + factorial);
+
+    // document.write() escribe el resultado directamente
+    // en la página web.
+    // Las etiquetas <h1> permiten mostrar el resultado
+    // como un encabezado de tamaño grande.
+
     document.write("<h1>El factorial es: " + factorial + "</h1>");
+
 </script>

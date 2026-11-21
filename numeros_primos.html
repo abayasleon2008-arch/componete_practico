@@ -1,22 +1,68 @@
 
-  <script>
-    let entrada = prompt("Ingrese un número para saber si es primo o no:");
-    let num = Number(entrada);
-    if (esPrimo(num)){
-      document.write(num + " Es primo" + "<br>")
-    } else {
-      document.write(num + " No es primo" + "<br>") 
+<script>
+
+// Solicita al usuario que ingrese un número mediante una ventana emergente.
+// prompt() permite recibir información escrita por el usuario.
+let entrada = prompt("Ingrese un número para saber si es primo o no:");
+
+// Convierte el dato ingresado en un valor numérico.
+// Number() transforma el texto recibido en un número para realizar operaciones.
+let num = Number(entrada);
+
+// Se llama a la función esPrimo() y se envía el número ingresado como argumento.
+// La función devolverá true si el número es primo o false si no lo es.
+if (esPrimo(num)) {
+
+    // Si la función devuelve true, significa que el número es primo.
+    // document.write() muestra el resultado directamente en la página web.
+    document.write(num + " Es primo" + "<br>");
+
+} else {
+
+    // Si la función devuelve false, significa que el número no es primo.
+    document.write(num + " No es primo" + "<br>");
+}
+
+// function permite crear una función llamada esPrimo.
+// numero es el parámetro que recibe el valor enviado desde la llamada.
+// Esta función se encarga de comprobar si un número es primo.
+function esPrimo(numero) {
+
+
+    // Un número primo debe ser mayor que 1.
+    // Por lo tanto, si el número es menor o igual a 1,
+    // automáticamente se determina que no es primo.
+    if (numero <= 1) {
+
+        // return false finaliza la función y devuelve falso.
+        return false;
     }
-    function esPrimo(numero) {
-        if (numero <= 1) {
-          return false;
-        }
-        for (let i = 2; i < numero; i++) {
-         if (numero % i == 0) {
+
+    // El ciclo comienza con i = 2.
+    // Se repite mientras i sea menor que el número ingresado.
+    // En cada repetición, i aumenta en una unidad.
+    //
+    // El objetivo es comprobar si el número tiene divisores
+    // diferentes de 1 y de sí mismo.
+
+    for (let i = 2; i < numero; i++) {
+
+        // El operador % obtiene el residuo de una división.
+        // Si numero % i == 0, significa que la división es exacta.
+        // Por lo tanto, el número tiene otro divisor y no es primo.
+        if (numero % i == 0) {
+
+            // Devuelve false porque se encontró un divisor exacto.
+            // return también finaliza inmediatamente la función.
             return false;
-         }
-       }
-        return true;
-      }
-  </script>
+        }
+    }
+
+    // Si el ciclo termina y no se encontró ningún divisor exacto,
+    // significa que el número solamente es divisible entre 1 y sí mismo.
+    // Por lo tanto, se devuelve true indicando que es primo.
+    return true;
+}
+
+</script>
 

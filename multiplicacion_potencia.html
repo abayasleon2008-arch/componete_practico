@@ -1,16 +1,78 @@
+
 <script>
-    let num1 = Number(prompt("inprese un primer numero"))
-    let num2 = Number(prompt("inprese un segundo numero(sera el exponente del primer numero)"))
-    document.write(num1 + " X " + num2 + " = " + (num1 * num2) + "<br>")
-     document.write("Se presentara la pontencia en multilicaciones sucesivas" + "<br>")
+
+    // Se solicita al usuario ingresar el primer número,
+    // que será utilizado como la base de la potencia.
+    // Number() convierte el dato ingresado a un valor numérico.
+
+    let num1 = Number(prompt("inprese un primer numero"));
+
+
+    // Se solicita el segundo número, que será utilizado
+    // como exponente del primer número.
+    // El exponente indica cuántas veces se multiplica la base por sí misma.
+
+    let num2 = Number(prompt("inprese un segundo numero(sera el exponente del primer numero)"));
+
+    // Se utiliza document.write() para mostrar la multiplicación
+    // de los dos números ingresados por el usuario.
+    // El operador * realiza la multiplicación entre num1 y num2.
+    // <br> permite realizar un salto de línea.
+
+    document.write(num1 + " X " + num2 + " = " + (num1 * num2) + "<br>");
+
+
+    // Se muestra un mensaje indicando que a continuación
+    // se representará la potencia mediante multiplicaciones sucesivas.
+
+    document.write("Se presentara la pontencia en multilicaciones sucesivas" + "<br>");
+
+    // Variable cont: funciona como contador para controlar
+    // las repeticiones del ciclo while.
+    // Se inicializa en 1.
+
     let cont = 1;
+
+    // Variable exp: almacena el resultado de las multiplicaciones.
+    // Se inicializa en 1 porque es el elemento neutro
+    // de la multiplicación.
+
     let exp = 1;
-    while(cont < num2){
-        document.write(num1 + " x ")
-        exp = exp * num1
+
+    // El ciclo while se ejecuta mientras cont sea menor que num2.
+    // De esta manera se controla la cantidad de multiplicaciones
+    // que se realizan según el exponente ingresado.
+
+    while (cont < num2) {
+
+        // Se muestra la base seguida del signo de multiplicación.
+        // Esto permite representar visualmente las operaciones sucesivas.
+
+        document.write(num1 + " x ");
+
+
+        // Se multiplica el resultado acumulado por num1.
+        // El nuevo resultado se almacena en la variable exp.
+        // Es equivalente a: exp = exp * num1.
+
+        exp = exp * num1;
+
+
+        // Se incrementa el contador en una unidad
+        // para avanzar hacia la siguiente repetición.
+
         cont++;
     }
-    exp = exp * num1
-    document.write( num1 + " = " + (exp))
+
+    // Al terminar el ciclo, se realiza una multiplicación adicional
+    // para completar la cantidad de factores indicada por el exponente.
+
+    exp = exp * num1;
+
+
+    // Se muestra la última base, el signo igual y el resultado final
+    // de las multiplicaciones sucesivas.
+
+    document.write(num1 + " = " + (exp));
 
 </script>

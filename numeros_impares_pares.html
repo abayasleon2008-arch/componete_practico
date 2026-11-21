@@ -1,26 +1,87 @@
+
 <script>
-    
-     document.write("<h1>Numeros Pares e Impares</h1>");
-        let cantidad = prompt("Ingrese la cantidad de números que desea generar:");
-        let num = Number(cantidad);
-        let contador = 0;
-        let resultadosuma = 0;
-        let resultadomultiplicacion = 1;
-      
-    while (contador < cantidad){
-        const entero0a10 = Math.floor(Math.random() * num)+ 1 ; // 0 a 10
-        let randomNum = entero0a10;
-      if (randomNum % 2 === 0) {
-                console.log(randomNum + " es un número par.");
-                document.write(randomNum + " es un número par.<br>");
-              resultadosuma = resultadosuma + randomNum;
-            } else {
-                console.log(randomNum + " es un número impar.");
-                document.write(randomNum + " es un número impar.<br>");
-               resultadomultiplicacion = resultadomultiplicacion * randomNum;
-            }  
-        contador++;
+
+// Muestra el título principal del ejercicio en la página web.
+document.write("<h1>Numeros Pares e Impares</h1>");
+
+
+// Solicita al usuario la cantidad de números aleatorios que desea generar.
+// prompt() muestra una ventana para ingresar un dato.
+let cantidad = prompt("Ingrese la cantidad de números que desea generar:");
+
+// Convierte el dato ingresado por el usuario en un número.
+// Number() permite realizar operaciones matemáticas con este valor.
+let num = Number(cantidad);
+
+
+// Contador que permite controlar cuántos números se han generado.
+// Inicialmente comienza en cero.
+let contador = 0;
+
+// Variable acumuladora que almacenará la suma de todos los números pares.
+// Comienza en cero porque es el valor inicial de una suma.
+let resultadosuma = 0;
+
+// Variable acumuladora que almacenará la multiplicación de todos los números impares.
+// Comienza en uno porque el 1 es el elemento neutro de la multiplicación.
+let resultadomultiplicacion = 1;
+
+
+// El ciclo while se ejecutará mientras el contador sea menor que la cantidad indicada.
+// Esto permite generar exactamente la cantidad de números solicitada.
+while (contador < cantidad) {
+
+    // Math.random() genera un número decimal aleatorio entre 0 y 1.
+    // Se multiplica por num para obtener un valor dentro del rango establecido.
+    // Math.floor() elimina los decimales y redondea hacia abajo.
+    // Finalmente, + 1 permite que el resultado comience desde 1.
+    const entero0a10 = Math.floor(Math.random() * num) + 1;
+
+    // Guarda el número aleatorio generado en la variable randomNum.
+    let randomNum = entero0a10;
+
+
+    // Comprueba si el número aleatorio es divisible entre 2.
+    // El operador % obtiene el residuo de una división.
+    // Si el residuo es igual a cero, significa que el número es par.
+    if (randomNum % 2 === 0) {
+
+        // Muestra en la consola del navegador que el número es par.
+        console.log(randomNum + " es un número par.");
+
+        // Muestra en la página web que el número generado es par.
+        document.write(randomNum + " es un número par.<br>");
+
+        // Suma el número par al acumulador resultadosuma.
+        // Es decir, agrega el valor actual a la suma anterior.
+        resultadosuma = resultadosuma + randomNum;
+
+    } else {
+
+        // Si el número no es divisible entre 2, significa que es impar.
+
+        // Muestra en la consola del navegador que el número es impar.
+        console.log(randomNum + " es un número impar.");
+
+        // Muestra en la página web que el número generado es impar.
+        document.write(randomNum + " es un número impar.<br>");
+
+        // Multiplica el número impar por el resultado anterior.
+        // El producto se almacena nuevamente en resultadomultiplicacion.
+        resultadomultiplicacion = resultadomultiplicacion * randomNum;
     }
-    document.write("<h2>La suma de los números pares es: " + resultadosuma + "</h2>");
-    document.write("<h2>La multiplicación de los números impares es: " + resultadomultiplicacion + "</h2>");
+
+    // Incrementa el contador en una unidad.
+    // Esto permite controlar la cantidad de números generados.
+    contador++;
+}
+
+
+// Muestra en la página web la suma total de los números pares.
+// <h2> permite presentar el resultado como un subtítulo.
+document.write("<h2>La suma de los números pares es: " + resultadosuma + "</h2>");
+
+// Muestra en la página web la multiplicación total de los números impares.
+document.write("<h2>La multiplicación de los números impares es: " + resultadomultiplicacion + "</h2>");
+
 </script>

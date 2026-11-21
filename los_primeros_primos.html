@@ -1,35 +1,120 @@
+
 <script>
-    let primos =0 ;
-    let cont = 0 ;
-    let cont10= 0 ;
-    let cont20= 0;
-    while (primos< 10 ) {
+
+    // Variable primos: cuenta la cantidad total de números
+    // primos encontrados. También controla la finalización del while.
+    let primos = 0;
+
+    // Variable cont: funciona como contador para recorrer
+    // los números naturales desde el 1 en adelante.
+    let cont = 0;
+
+    // Variable cont10: cuenta cuántos números primos
+    // se encuentran dentro del intervalo del 1 al 10.
+    let cont10 = 0;
+
+    // Variable cont20: cuenta cuántos números primos
+    // se encuentran dentro del intervalo del 15 al 25.
+    let cont20 = 0;
+
+    // El ciclo while se ejecuta mientras la cantidad de números
+    // primos encontrados sea menor que 10.
+    // Cuando primos llega a 10, el ciclo termina.
+
+    while (primos < 10) {
+
+        // Se incrementa el contador en una unidad.
+        // Así se comprueba cada número natural consecutivamente.
         cont++;
-        if(esPrimo(cont)) {
-            document.write(cont + "<br>")
+
+        // Se llama a la función esPrimo() y se envía
+        // el número actual almacenado en cont.
+        // Si devuelve true, significa que el número es primo.
+
+        if (esPrimo(cont)) {
+
+            // Se muestra el número primo encontrado
+            // directamente en la página HTML.
+            document.write(cont + "<br>");
+
+            // Se comprueba si el número actual está
+            // dentro del intervalo comprendido entre 1 y 10.
+
             if (cont >= 1 && cont <= 10) {
-              cont10++;
+
+                // Si cumple ambas condiciones, se incrementa
+                // el contador de números primos de este intervalo.
+                cont10++;
             }
+
+            // Se comprueba si el número actual está
+            // dentro del intervalo comprendido entre 15 y 25.
+
             if (cont >= 15 && cont <= 25) {
-              cont20++;
+
+                // Si cumple ambas condiciones, se incrementa
+                // el contador de números primos de este intervalo.
+                cont20++;
             }
-         }
+        }
+
+        // Esta función recibe un número mediante el parámetro
+        // numero y comprueba si tiene divisores adicionales
+        // a 1 y a sí mismo.
+
         function esPrimo(numero) {
+
+            // Los números menores o iguales a 1 no son primos.
+            // Por eso se devuelve false cuando se cumple esta condición.
+
             if (numero <= 1) {
-             return false;
+                return false;
             }
+
+
+            // El ciclo for comprueba los posibles divisores
+            // del número, comenzando desde 2 hasta numero - 1.
 
             for (let i = 2; i < numero; i++) {
-             if (numero % i == 0) {
-                  return false;
-                  primos--;
 
-                 }
+                // El operador % obtiene el residuo de la división.
+                // Si el residuo es 0, significa que el número
+                // es divisible exactamente entre i.
+
+                if (numero % i == 0) {
+
+                    // Se devuelve false porque se encontró
+                    // un divisor adicional y el número no es primo.
+
+                    return false;
+
+                    // Esta instrucción primos-- no se ejecuta,
+                    // porque está después de return.
                 }
-                primos++;
-              return true;
-        } 
+            }
+
+
+            // Si el ciclo termina sin encontrar divisores,
+            // se incrementa el contador de números primos.
+
+            primos++;
+
+            // Se devuelve true para indicar que el número
+            // recibido sí es primo.
+
+            return true;
+        }
+
     }
-    document.write("La cantidad numeros primos entre el 1-10 son:  " + cont10 + "<br>")
-    document.write("La cantidad numeros primos entre el 15-25 son:  " + cont20 )
+
+    // Se muestra la cantidad de números primos encontrados
+    // dentro del intervalo comprendido entre 1 y 10.
+
+    document.write("La cantidad numeros primos entre el 1-10 son: " + cont10 + "<br>");
+
+    // Se muestra la cantidad de números primos encontrados
+    // dentro del intervalo comprendido entre 15 y 25.
+
+    document.write("La cantidad numeros primos entre el 15-25 son: " + cont20);
+
 </script>

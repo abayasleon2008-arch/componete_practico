@@ -1,19 +1,89 @@
+
 <script>
-    let num1 = Number(prompt("Escriba el primer numero"))
-    let num2 = Number(prompt("Escriba el segudo numero numero"))
-document.write("El producto de los numero es:")
-document.write(num1 +" X "+ num2 + " = " + (num1*num2) + "<br>") 
-let a = 1;
- switch(a){
-    case 1:
-        for ( n1 = 0; n1 < num1 ; n1++) {
-           document.write(num2 + " + ")
-        }
-        document.write((num1*num2)+ "<br>")
-    default:
-         for (n1 = 0; n1 < num2 ; n1++) {
-           document.write(num1 + " + ")
-        }
-        document.write((num1*num2)+ "<br>")
- }
+
+    // Se solicita al usuario ingresar el primer número.
+    // Number() convierte el dato ingresado en un valor numérico.
+
+    let num1 = Number(prompt("Escriba el primer numero"));
+
+
+    // Se solicita al usuario ingresar el segundo número.
+    // Este valor también se convierte a tipo numérico.
+
+    let num2 = Number(prompt("Escriba el segudo numero numero"));
+
+    // Se muestra un mensaje indicando que a continuación
+    // se presentará el resultado de la multiplicación.
+
+    document.write("El producto de los numero es:");
+
+
+    // Se realiza la multiplicación de num1 por num2
+    // utilizando el operador aritmético *.
+    // También se muestran los números y el resultado en pantalla.
+
+    document.write(num1 + " X " + num2 + " = " + (num1*num2) + "<br>");
+
+
+    // Se declara la variable a y se le asigna el valor 1.
+    // Esta variable se utiliza como expresión de control
+    // para seleccionar el primer caso del switch.
+
+    let a = 1;
+
+    // switch permite ejecutar diferentes bloques de instrucciones
+    // dependiendo del valor de la variable a.
+    // Como a vale 1, se ejecutará inicialmente el case 1.
+
+    switch(a){
+
+        case 1:
+
+            // El ciclo for comienza con n1 = 0.
+            // Se repite mientras n1 sea menor que num1.
+            // En cada repetición, n1 aumenta en una unidad.
+            // Esto permite mostrar num2 tantas veces como indique num1.
+
+            for ( n1 = 0; n1 < num1 ; n1++) {
+
+                // Se muestra el valor de num2 seguido del signo +.
+                // De esta manera se representa la multiplicación
+                // como una suma repetida.
+
+                document.write(num2 + " + ");
+            }
+
+
+            // Al terminar el ciclo, se muestra el resultado
+            // de la multiplicación de num1 por num2.
+
+            document.write((num1*num2)+ "<br>");
+
+        // default se ejecuta cuando ningún case coincide.
+        // En este código no se utiliza break después del case 1,
+        // por lo que default también se ejecuta después de case 1.
+
+        default:
+
+            // El segundo ciclo for comienza con n1 = 0.
+            // Se repite mientras n1 sea menor que num2.
+            // En cada repetición, n1 aumenta en una unidad.
+            // Esto permite mostrar num1 tantas veces como indique num2.
+
+            for (n1 = 0; n1 < num2 ; n1++) {
+
+                // Se muestra num1 seguido del signo +,
+                // representando la multiplicación mediante
+                // una suma repetida.
+
+                document.write(num1 + " + ");
+            }
+
+
+            // Se muestra nuevamente el resultado de la multiplicación.
+
+            document.write((num1*num2)+ "<br>");
+
+    }
+
 </script>

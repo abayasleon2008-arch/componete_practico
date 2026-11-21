@@ -1,22 +1,69 @@
+
 <script>
-    let vendedor = prompt("Ingrese en nombre del vendedor")
-    let sueldo = prompt("ingrese el sueldo basico del vendedor")
-    let acumulador = 0;
-    let acumulador1 = 0;
-    while( true){
-        acumulador1 = acumulador;
-        let ventas = prompt("Escriba el total de ventas del mes \n  Toque el boton cancelar para dejar de añadir ventas")
-        acumulador = acumulador + Number(ventas);
-        if (ventas == null){
-            break;
-        }
+
+// Solicita el nombre del vendedor.
+// prompt() permite ingresar información mediante una ventana emergente.
+let vendedor = prompt("Ingrese en nombre del vendedor");
+
+// Solicita el sueldo básico mensual del vendedor.
+// El valor ingresado inicialmente se almacena como texto.
+let sueldo = prompt("ingrese el sueldo basico del vendedor");
+
+
+// Variable acumuladora que almacenará el total de las ventas.
+// Comienza en cero porque todavía no se han registrado ventas.
+let acumulador = 0;
+
+// Variable que almacenará el total de las ventas válidas.
+// Se utiliza para conservar el valor acumulado antes de que
+// el usuario presione el botón cancelar.
+let acumulador1 = 0;
+
+// while(true) crea un ciclo que se repite indefinidamente.
+// El ciclo continuará ejecutándose hasta encontrar una instrucción break.
+while (true) {
+
+    // Copia el valor actual del acumulador en acumulador1.
+    // Esto permite conservar el total de ventas antes de solicitar
+    // un nuevo dato al usuario.
+    acumulador1 = acumulador;
+
+    // Solicita al usuario el total de una venta.
+    // El mensaje explica que puede presionar cancelar para terminar.
+    // \n permite realizar un salto de línea dentro del mensaje.
+    let ventas = prompt("Escriba el total de ventas del mes \n Toque el boton cancelar para dejar de añadir ventas");
+
+    // Convierte el valor ingresado en número y lo suma al acumulador.
+    // Number() permite transformar el texto en un valor numérico.
+    acumulador = acumulador + Number(ventas);
+
+    // Comprueba si el usuario presionó el botón cancelar.
+    // Cuando se presiona cancelar, prompt() devuelve null.
+    if (ventas == null) {
+
+        // break interrumpe inmediatamente el ciclo while.
+        break;
     }
-    let comision = acumulador1 * 0.10;
-    let sueldo1 = Number(sueldo) + comision;
+}
 
-        document.write("el vendedor: " + vendedor + "<br>")
-        document.write("Tiene un total de comisiones de: "+ comision + "<br>")
-        document.write("Tiene un sueldo total de: "+ sueldo1 + "<br>")
+// Calcula la comisión del vendedor aplicando el 10 %
+// sobre el total de ventas almacenado en acumulador1.
+// Multiplicar por 0.10 equivale a calcular el 10 por ciento.
+let comision = acumulador1 * 0.10;
 
+// Convierte el sueldo básico en un número utilizando Number().
+// Después suma el sueldo básico y la comisión obtenida.
+// El resultado representa el sueldo total del vendedor.
+let sueldo1 = Number(sueldo) + comision;
+
+// Muestra el nombre del vendedor en la página web.
+// <br> permite realizar un salto de línea.
+document.write("el vendedor: " + vendedor + "<br>");
+
+// Muestra el valor total de las comisiones obtenidas.
+document.write("Tiene un total de comisiones de: " + comision + "<br>");
+
+// Muestra el sueldo básico más las comisiones.
+document.write("Tiene un sueldo total de: " + sueldo1 + "<br>");
 
 </script>

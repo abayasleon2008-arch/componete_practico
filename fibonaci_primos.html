@@ -1,37 +1,120 @@
+
 <script>
-       let a = 0;
-     let contador = 0;
-     let b = 1;  
-     let fib = 0;
-     let primos = 0;
-     while (contador < 10) {
+
+    // Variable a: almacena el primer valor de referencia
+    // para generar los números de Fibonacci.
+    let a = 0;
+
+    // Variable contador: controla las iteraciones del ciclo.
+    // Se inicializa en 0 para generar los primeros 10 números.
+    let contador = 0;
+
+    // Variable b: almacena el segundo valor de la sucesión.
+    let b = 1;
+
+    // Variable fib: almacena el número actual de Fibonacci.
+    let fib = 0;
+
+    // Variable primos: cuenta la cantidad de números primos
+    // encontrados durante la ejecución del programa.
+    let primos = 0;
+
+    // El ciclo while se ejecuta mientras contador sea menor que 10.
+    // De esta manera se generan y evalúan 10 números.
+
+    while (contador < 10) {
+
+        // Se comprueba si el contador está en las posiciones 0 o 1.
         if (contador <= 1) {
+
+            // En las dos primeras posiciones, el valor de Fibonacci
+            // corresponde directamente al valor del contador.
+            // Los primeros números son 0 y 1.
+
             fib = contador;
+
         } else {
+
+            // A partir de la tercera posición, se suman los dos
+            // números anteriores para obtener el siguiente Fibonacci.
+
             fib = a + b;
+
+            // Se actualiza a con el valor anterior de b.
             a = b;
+
+            // Se actualiza b con el nuevo número Fibonacci.
             b = fib;
         }
+
+
+        // Se incrementa el contador en una unidad para avanzar
+        // hacia la siguiente iteración del ciclo.
+
         contador++;
+
+        // Se llama a la función esPrimo() y se envía el número
+        // Fibonacci actual para comprobar si es un número primo.
+
         if (esPrimo(fib)) {
-             primos++;
-             console.log(fib);
-             document.write("Es primo: " + fib + "<br>");
-        } else {
+
+            // Si la función devuelve true, significa que el número
+            // es primo y se incrementa el contador de primos.
+            primos++;
+
+            // Se muestra el número primo en la consola del navegador.
             console.log(fib);
-            document.write( " No es primo: " + fib + "<br>");
+
+            // Se muestra en la página web que el número es primo.
+            document.write("Es primo: " + fib + "<br>");
+
+        } else {
+
+            // Si la función devuelve false, significa que el número
+            // no es primo y se muestra el mensaje correspondiente.
+
+            console.log(fib);
+            document.write(" No es primo: " + fib + "<br>");
         }
-     function esPrimo(numero) {
+
+        // La función recibe un número mediante el parámetro numero
+        // y comprueba si tiene divisores diferentes de 1 y de sí mismo.
+
+        function esPrimo(numero) {
+
+            // Los números menores o iguales a 1 no son primos.
+            // Se devuelve false cuando se cumple esta condición.
+
             if (numero <= 1) {
-             return false;
+                return false;
             }
+
+            // El ciclo for comprueba si existen divisores
+            // entre 2 y el número inmediatamente anterior.
+
             for (let i = 2; i < numero; i++) {
-             if (numero % i == 0) {
-                     return false;
-                 }
+
+                // El operador % calcula el residuo de la división.
+                // Si el residuo es 0, significa que encontramos
+                // un divisor exacto y el número no es primo.
+
+                if (numero % i == 0) {
+
+                    return false;
                 }
-              return true;
-        }   
-     }
-     document.write("La canidad de numeros primos son: " + primos + "<br>")
+            }
+
+            // Si no se encuentra ningún divisor adicional,
+            // se devuelve true porque el número es primo.
+
+            return true;
+        }
+
+    }
+
+    // Al finalizar el ciclo while, se muestra la cantidad
+    // total de números primos encontrados en la sucesión.
+
+    document.write("La cantidad de numeros primos son: " + primos + "<br>");
+
 </script>

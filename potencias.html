@@ -1,41 +1,127 @@
+
 <script>
-    let ingreso = prompt("Ingrese un número para calcular su potencia:");
-    let base = Number(ingreso);
-    let exponente = prompt("Ingrese el exponente:");
-    let exp = Number(exponente);
 
-    switch (exp) {
-        case 0:
-            let resultado = 1;
-            console.log("El resultado es: " + resultado);
-            document.write("<h1>El resultado es: " + resultado + "</h1>");
-            break;
-        case 1:
-            let resultado1 = base;
-            console.log("El resultado es: " + resultado1);
-            document.write("<h1>El resultado es: " + resultado1 + "</h1>");
-            break;
-        default:
-            let negativo = exp < 0;
-            if (negativo) {
-                exp = -exp;
-            }
 
-            let cont = 0;
-            let resultado2 = 1;
-            while (cont < exp) {
-                resultado2 = resultado2 * base;
-                cont++;
-            }
+// Solicita al usuario que ingrese el número que desea utilizar como base.
+// prompt() muestra una ventana para ingresar el valor.
+let ingreso = prompt("Ingrese un número para calcular su potencia:");
 
-            if (negativo) {
-                resultado2 = 1 / resultado2;
-                console.log("El resultado es: " + resultado2);
-                document.write("<h1>El resultado es: " + resultado2 + "</h1>");
-            } else {
-                console.log("El resultado es: " + resultado2);
-                document.write("<h1>El resultado es: " + resultado2 + "</h1>");
-            }
-            break;
-    }
+// Convierte el dato ingresado en un número.
+// Number() permite realizar operaciones matemáticas con la base.
+let base = Number(ingreso);
+
+// Solicita al usuario que ingrese el exponente de la potencia.
+let exponente = prompt("Ingrese el exponente:");
+
+// Convierte el exponente ingresado en un valor numérico.
+let exp = Number(exponente);
+
+
+// switch permite evaluar el valor de una variable
+// y ejecutar diferentes instrucciones dependiendo de su resultado.
+// En este caso, se evalúa el exponente (exp).
+
+switch (exp) {
+
+
+    // Si el exponente es 0, se aplica la propiedad matemática:
+    // Todo número diferente de cero elevado a 0 es igual a 1.
+    case 0:
+
+        // Declara la variable resultado y almacena el valor 1.
+        let resultado = 1;
+
+        // Muestra el resultado en la consola del navegador.
+        console.log("El resultado es: " + resultado);
+
+        // Muestra el resultado en la página web utilizando un encabezado h1.
+        document.write("<h1>El resultado es: " + resultado + "</h1>");
+
+        // break finaliza el caso actual y evita ejecutar los siguientes.
+        break;
+
+    // Si el exponente es 1, se aplica la propiedad:
+    // Todo número elevado a 1 es igual al mismo número.
+    case 1:
+
+        // Declara resultado1 y almacena directamente el valor de la base.
+        let resultado1 = base;
+
+        // Imprime el resultado en la consola.
+        console.log("El resultado es: " + resultado1);
+
+        // Muestra el resultado en la página web.
+        document.write("<h1>El resultado es: " + resultado1 + "</h1>");
+
+        // Finaliza la ejecución de este caso.
+        break;
+
+
+    // default se ejecuta cuando el exponente no es 0 ni 1.
+    // Aquí se calculan las potencias positivas y negativas.
+    default:
+
+        // Comprueba si el exponente es negativo.
+        // Si exp es menor que cero, negativo será true.
+        // De lo contrario, será false.
+        let negativo = exp < 0;
+
+        // Si el exponente es negativo, se convierte en positivo.
+        // El operador - cambia el signo del valor.
+        // Por ejemplo: -3 se convierte en 3.
+        if (negativo) {
+            exp = -exp;
+        }
+
+        // Variable contadora que comienza en cero.
+        // Permitirá controlar cuántas multiplicaciones se realizan.
+        let cont = 0;
+
+        // Variable acumuladora que almacena el resultado de la potencia.
+        // Comienza en 1 porque es el elemento neutro de la multiplicación.
+        let resultado2 = 1;
+
+        // El ciclo se repite mientras cont sea menor que exp.
+        // Esto permite realizar tantas multiplicaciones como indique el exponente.
+        while (cont < exp) {
+
+            // Multiplica el resultado acumulado por la base.
+            // Cada repetición agrega una multiplicación de la base.
+            resultado2 = resultado2 * base;
+
+            // Incrementa el contador en una unidad.
+            // Permite controlar la cantidad de repeticiones.
+            cont++;
+        }
+
+        // Comprueba si originalmente el exponente era negativo.
+        if (negativo) {
+
+            // Cuando el exponente es negativo, se aplica la propiedad:
+            // a^(-n) = 1 / a^n
+            //
+            // Por eso se divide 1 entre el resultado calculado.
+            resultado2 = 1 / resultado2;
+
+            // Muestra el resultado de la potencia negativa en la consola.
+            console.log("El resultado es: " + resultado2);
+
+            // Presenta el resultado en la página web.
+            document.write("<h1>El resultado es: " + resultado2 + "</h1>");
+
+        } else {
+
+            // Si el exponente es positivo, no es necesario invertir el resultado.
+
+            // Muestra el resultado en la consola.
+            console.log("El resultado es: " + resultado2);
+
+            // Muestra el resultado final en la página web.
+            document.write("<h1>El resultado es: " + resultado2 + "</h1>");
+        }
+
+        // Finaliza la ejecución del caso default.
+        break;
+}
+
 </script>

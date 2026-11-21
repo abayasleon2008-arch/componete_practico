@@ -1,10 +1,45 @@
+
 <script>
+
+    // Se declara la variable cont y se inicializa en 0.
+    // Esta variable permitirá contar cuántos ingresos
+    // ha realizado el usuario por teclado.
+
     let cont = 0;
-    while(cont != 15){
-        let ingreso = prompt("La ejcucion terminara cuando ingrese la letra s de salir o cunto hagas 15 ingresos por teclado") 
-        if(ingreso == "s" || ingreso == "S"){
+
+
+    // El ciclo while se ejecuta mientras cont sea diferente de 15.
+    // Cuando el contador llega a 15, la condición deja de cumplirse
+    // y el ciclo termina automáticamente.
+
+    while (cont != 15) {
+
+        // prompt() muestra una ventana emergente que solicita
+        // al usuario ingresar un dato por teclado.
+        // El programa informa que puede finalizar escribiendo
+        // la letra S o s, o realizando los 15 ingresos.
+
+        let ingreso = prompt("La ejecución terminará cuando ingrese la letra s de salir o cuando haga 15 ingresos por teclado");
+
+        // Se utiliza if para comprobar si el usuario ingresó
+        // la letra "s" minúscula o "S" mayúscula.
+        // El operador || significa OR (O), por lo que basta
+        // con que una de las dos condiciones sea verdadera.
+
+        if (ingreso == "s" || ingreso == "S") {
+
+            // break interrumpe inmediatamente el ciclo while.
+            // Esto permite finalizar el programa sin necesidad
+            // de completar los 15 ingresos.
+
             break;
         }
+
+        // Si el usuario no ingresó la letra S o s,
+        // se incrementa el contador en una unidad.
+        // De esta manera se registra un nuevo ingreso.
+
         cont++;
     }
+
 </script>
