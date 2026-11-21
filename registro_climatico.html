@@ -1,0 +1,88 @@
+<script>
+// EJERCICIO 5: Registro climático avanzado
+
+// Variables
+let n;                     // cantidad de registros de temperatura
+let temp;                  // cada temperatura ingresada
+let congelante = 0;        // contadores de cada clasificación
+let frio = 0;
+let templado = 0;
+let caluroso = 0;
+let peligroso = 0;
+let extremas = 0;          // temperaturas peligrosas o congelantes
+let sumaTemperaturas = 0;  // suma de todas las temperaturas (para el promedio)
+
+document.write("<h2>Ejercicio 5: Registro climático avanzado</h2>");
+
+// Pido N y valido que sea mayor a 0
+n = parseInt(prompt("¿Cuántas temperaturas va a ingresar? (N debe ser mayor a 0)"));
+while (isNaN(n) || n <= 0) {
+    alert("Error: N debe ser un número mayor a 0");
+    n = parseInt(prompt("¿Cuántas temperaturas va a ingresar? (N debe ser mayor a 0)"));
+}
+
+// Este for se repite N veces, una vez por cada temperatura
+for (let i = 1; i <= n; i++) {
+
+    // uso parseFloat porque la temperatura puede tener decimales
+    temp = parseFloat(prompt("Ingrese la temperatura " + i + " de " + n + " (en °C)"));
+    while (isNaN(temp)) {
+        alert("Dato inválido, ingrese un número");
+        temp = parseFloat(prompt("Ingrese la temperatura " + i + " de " + n + " (en °C)"));
+    }
+
+    // voy sumando para sacar el promedio al final
+    sumaTemperaturas = sumaTemperaturas + temp;
+
+    // Condiciones anidadas múltiples para clasificar la temperatura
+    if (temp < 0) {
+        congelante = congelante + 1;
+        document.write("Temperatura " + temp + " °C: Congelante<br>");
+    } else {
+        if (temp <= 15) {
+            // de 0 a 15
+            frio = frio + 1;
+            document.write("Temperatura " + temp + " °C: Frío<br>");
+        } else {
+            if (temp <= 30) {
+                // de 16 a 30
+                templado = templado + 1;
+                document.write("Temperatura " + temp + " °C: Templado<br>");
+            } else {
+                if (temp <= 40) {
+                    // de 31 a 40
+                    caluroso = caluroso + 1;
+                    document.write("Temperatura " + temp + " °C: Caluroso<br>");
+                } else {
+                    // más de 40
+                    peligroso = peligroso + 1;
+                    document.write("Temperatura " + temp + " °C: Peligroso<br>");
+                }
+            }
+        }
+    }
+
+    // Condición compuesta con O: (temp < 0) O (temp > 40)
+    // si es congelante o peligrosa la cuento como extrema
+    if (temp < 0 || temp > 40) {
+        extremas = extremas + 1;
+    }
+}
+
+// Calculo el promedio total
+let promedio = sumaTemperaturas / n;
+
+// Muestro los resultados
+document.write("<br><b>RESULTADOS</b><br>");
+document.write("Congelante: " + congelante + ", Frío: " + frio + ", Templado: " + templado + ", Caluroso: " + caluroso + ", Peligroso: " + peligroso + "<br>");
+document.write("Temperaturas extremas: " + extremas + "<br>");
+document.write("Promedio = " + promedio.toFixed(1) + " °C<br>");
+
+// Condición compuesta: el promedio está fuera del rango templado (16 a 30)
+// si es menor a 16 O mayor a 30 está fuera del rango
+if (promedio < 16 || promedio > 30) {
+    document.write("Estado: Fuera del rango templado<br>");
+} else {
+    document.write("Estado: Dentro del rango templado<br>");
+}
+</script>

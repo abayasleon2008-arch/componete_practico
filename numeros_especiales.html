@@ -1,0 +1,89 @@
+<script>
+// EJERCICIO 4: Análisis de números especiales
+
+// Variables
+let n;                        // cantidad de números
+let num;                      // cada número ingresado
+let sumaPosPares = 0;         // suma de positivos pares
+let contPosPares = 0;         // cuántos positivos pares hay
+let sumaNegX3 = 0;            // suma de negativos múltiplos de 3
+let contNegX3 = 0;            // cuántos negativos múltiplos de 3 hay
+let sumaImparesX5 = 0;        // suma de impares múltiplos de 5
+let contImparesX5 = 0;        // cuántos impares múltiplos de 5 hay
+let contEspeciales = 0;       // cuántos números especiales hay
+let especiales = "";          // aquí voy guardando los números especiales para mostrarlos
+
+document.write("<h2>Ejercicio 4: Análisis de números especiales</h2>");
+
+// Pido N y valido que sea mayor a 0
+n = parseInt(prompt("¿Cuántos números va a ingresar? (N debe ser mayor a 0)"));
+while (isNaN(n) || n <= 0) {
+    alert("Error: N debe ser un número mayor a 0");
+    n = parseInt(prompt("¿Cuántos números va a ingresar? (N debe ser mayor a 0)"));
+}
+
+// Este for se repite N veces, una vez por cada número
+for (let i = 1; i <= n; i++) {
+
+    num = parseInt(prompt("Ingrese el número " + i + " de " + n + " (distinto de 0)"));
+
+    // El número no puede ser 0 ni una letra, si lo es lo vuelvo a pedir
+    while (isNaN(num) || num == 0) {
+        alert("Dato inválido, ingrese un número entero distinto de 0");
+        num = parseInt(prompt("Ingrese el número " + i + " de " + n + " (distinto de 0)"));
+    }
+
+    // Estas variables guardan si el número cumple cada condición (true = sí, false = no)
+    let esPosPar = false;
+    let esNegX3 = false;
+    let esImparX5 = false;
+
+    // Varios SI anidados:
+    // primero veo si es positivo o negativo
+    if (num > 0) {
+        // es positivo, veo si es par
+        if (num % 2 == 0) {
+            esPosPar = true;
+            sumaPosPares = sumaPosPares + num;
+            contPosPares = contPosPares + 1;
+        }
+    } else {
+        // es negativo, veo si es múltiplo de 3
+        if (num % 3 == 0) {
+            esNegX3 = true;
+            sumaNegX3 = sumaNegX3 + num;
+            contNegX3 = contNegX3 + 1;
+        }
+    }
+
+    // Condición compuesta con Y: impar Y múltiplo de 5
+    // (se revisa para positivos y negativos)
+    if (num % 2 != 0 && num % 5 == 0) {
+        esImparX5 = true;
+        sumaImparesX5 = sumaImparesX5 + num;
+        contImparesX5 = contImparesX5 + 1;
+    }
+
+    // Número especial: cumple más de una condición.
+    // Uso Y y O juntos: (la 1 Y la 2) O (la 1 Y la 3) O (la 2 Y la 3)
+    if ((esPosPar && esNegX3) || (esPosPar && esImparX5) || (esNegX3 && esImparX5)) {
+        document.write("Número " + i + ": " + num + " -> Número especial<br>");
+        especiales = especiales + num + "  ";
+        contEspeciales = contEspeciales + 1;
+    } else {
+        document.write("Número " + i + ": " + num + "<br>");
+    }
+}
+
+// Muestro los totales y las sumas de cada tipo
+document.write("<br><b>RESULTADOS</b><br>");
+document.write("Positivos Pares: " + sumaPosPares + " (cantidad: " + contPosPares + ")<br>");
+document.write("Negativos x3: " + sumaNegX3 + " (cantidad: " + contNegX3 + ")<br>");
+document.write("Impares x5: " + contImparesX5 + " (suma: " + sumaImparesX5 + ")<br>");
+
+if (contEspeciales > 0) {
+    document.write("Especiales: " + especiales + " (cantidad: " + contEspeciales + ")<br>");
+} else {
+    document.write("Especiales: ninguno<br>");
+}
+</script>

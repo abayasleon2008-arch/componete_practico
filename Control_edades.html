@@ -1,0 +1,76 @@
+<script>
+// EJERCICIO 2: Control de edades con estadísticas
+
+// Variables
+let n;                      // cantidad de edades
+let edad;                   // cada edad ingresada
+let ninos = 0;              // contador de niños
+let adolescentes = 0;       // contador de adolescentes
+let adultos = 0;            // contador de adultos
+let adultosMayores = 0;     // contador de adultos mayores
+
+document.write("<h2>Ejercicio 2: Control de edades con estadísticas</h2>");
+
+// Pido N y valido que sea mayor a 0
+n = parseInt(prompt("¿Cuántas edades va a ingresar? (N debe ser mayor a 0)"));
+while (isNaN(n) || n <= 0) {
+    alert("Error: N debe ser un número mayor a 0");
+    n = parseInt(prompt("¿Cuántas edades va a ingresar? (N debe ser mayor a 0)"));
+}
+
+// Este for se repite N veces, una vez por cada edad
+for (let i = 1; i <= n; i++) {
+
+    edad = parseInt(prompt("Ingrese la edad " + i + " de " + n + " (entre 1 y 120)"));
+
+    // Validación con condición compuesta: (edad < 1) O (edad > 120)
+    // Mientras la edad no sea válida se vuelve a pedir
+    while (isNaN(edad) || edad < 1 || edad > 120) {
+        alert("Edad no válida, debe estar entre 1 y 120");
+        edad = parseInt(prompt("Ingrese la edad " + i + " de " + n + " (entre 1 y 120)"));
+    }
+
+    // Condiciones anidadas para clasificar la edad
+    if (edad < 12) {
+        ninos = ninos + 1;
+        document.write("Edad " + edad + ": Niño<br>");
+    } else {
+        if (edad < 18) {
+            // aquí la edad es de 12 a 17
+            adolescentes = adolescentes + 1;
+            document.write("Edad " + edad + ": Adolescente<br>");
+        } else {
+            if (edad < 60) {
+                // aquí la edad es de 18 a 59
+                adultos = adultos + 1;
+                document.write("Edad " + edad + ": Adulto<br>");
+            } else {
+                // aquí la edad es 60 o más
+                adultosMayores = adultosMayores + 1;
+                document.write("Edad " + edad + ": Adulto Mayor<br>");
+            }
+        }
+    }
+
+    // Si la edad es mayor a 100 muestro un mensaje especial
+    if (edad > 100) {
+        document.write("&nbsp;&nbsp;&nbsp;Edad fuera de rango común<br>");
+    }
+}
+
+// Cálculos finales
+let porcentajeAdultos = adultos * 100 / n;   // porcentaje de adultos sobre el total
+let menores = ninos + adolescentes;          // los menores de 18 son niños + adolescentes
+
+// Muestro los resultados
+document.write("<br><b>RESULTADOS</b><br>");
+document.write("Niños: " + ninos + ", Adolescentes: " + adolescentes + ", Adultos: " + adultos + ", Adultos Mayores: " + adultosMayores + "<br>");
+document.write("% de adultos = " + porcentajeAdultos.toFixed(1) + "%<br>");
+
+// Veo si hay más menores que adultos
+if (menores > adultos) {
+    document.write("Más menores que adultos: Sí (menores: " + menores + ", adultos: " + adultos + ")<br>");
+} else {
+    document.write("Más menores que adultos: No (menores: " + menores + ", adultos: " + adultos + ")<br>");
+}
+</script>

@@ -1,0 +1,80 @@
+<script>
+// EJERCICIO 1: Clasificación y suma de números
+
+// Variables que voy a necesitar
+let n;                          // cantidad de números que se van a ingresar
+let num;                        // cada número que ingresa el usuario
+let sumaPositivosPares = 0;     // aquí se acumula la suma de los positivos pares
+let sumaNegativosImpares = 0;   // aquí se acumula la suma de los negativos impares
+let multiplos = 0;              // cuenta los múltiplos de 3 o de 5
+let positivos = 0;              // cuenta cuántos números son positivos
+let negativos = 0;              // cuenta cuántos números son negativos
+
+document.write("<h2>Ejercicio 1: Clasificación y suma de números</h2>");
+
+// Pido N y valido que sea mayor a 0.
+// Mientras no sea válido (no es número o es menor o igual a 0) lo vuelvo a pedir
+n = parseInt(prompt("¿Cuántos números va a ingresar? (N debe ser mayor a 0)"));
+while (isNaN(n) || n <= 0) {
+    alert("Error: N debe ser un número mayor a 0");
+    n = parseInt(prompt("¿Cuántos números va a ingresar? (N debe ser mayor a 0)"));
+}
+
+// Este for se repite N veces, una vez por cada número
+for (let i = 1; i <= n; i++) {
+
+    // pido el número, si no escribe un número lo vuelvo a pedir
+    num = parseInt(prompt("Ingrese el número " + i + " de " + n));
+    while (isNaN(num)) {
+        alert("Dato inválido, ingrese un número entero");
+        num = parseInt(prompt("Ingrese el número " + i + " de " + n));
+    }
+
+    document.write("Número " + i + ": " + num + "<br>");
+
+    // Condición compuesta: (num > 0) Y (num MOD 2 = 0)
+    // si es positivo y par lo sumo
+    if (num > 0 && num % 2 == 0) {
+        sumaPositivosPares = sumaPositivosPares + num;
+    }
+
+    // Condición compuesta: negativo Y impar
+    // (en JavaScript un negativo impar da residuo -1, por eso uso != 0)
+    if (num < 0 && num % 2 != 0) {
+        sumaNegativosImpares = sumaNegativosImpares + num;
+    }
+
+    // Condición compuesta con O: múltiplo de 3 O múltiplo de 5
+    if (num % 3 == 0 || num % 5 == 0) {
+        multiplos = multiplos + 1;
+    }
+
+    // Condiciones anidadas dentro del ciclo:
+    // primero veo si es positivo, si no, veo si es negativo (el 0 no cuenta en ninguno)
+    if (num > 0) {
+        positivos = positivos + 1;
+    } else {
+        if (num < 0) {
+            negativos = negativos + 1;
+        }
+    }
+}
+
+// Muestro los resultados
+document.write("<br><b>RESULTADOS</b><br>");
+document.write("Suma positivos pares = " + sumaPositivosPares + "<br>");
+document.write("Suma negativos impares = " + sumaNegativosImpares + "<br>");
+document.write("Múltiplos de 3 o 5 = " + multiplos + "<br>");
+
+// Comparo el total de positivos con el total de negativos
+// (&gt; significa > y &lt; significa < en HTML)
+if (positivos > negativos) {
+    document.write("Comparación: Positivos &gt; Negativos (" + positivos + " y " + negativos + ")<br>");
+} else {
+    if (positivos < negativos) {
+        document.write("Comparación: Positivos &lt; Negativos (" + positivos + " y " + negativos + ")<br>");
+    } else {
+        document.write("Comparación: Positivos = Negativos (" + positivos + " y " + negativos + ")<br>");
+    }
+}
+</script>

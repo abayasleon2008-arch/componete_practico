@@ -1,0 +1,94 @@
+<script>
+// EJERCICIO 3: Promedio con control de notas extremas
+
+// Variables
+let n;                        // cantidad de notas
+let nota;                     // cada nota ingresada
+let sumaTotal = 0;            // suma de todas las notas
+let sumaAprobados = 0;        // suma de las notas >= 14
+let cantAprobados = 0;        // cuántos aprobaron
+let sumaReprobados = 0;       // suma de las notas < 14
+let cantReprobados = 0;       // cuántos reprobaron
+let mayor = 0;                // nota más alta (empieza en 0, el mínimo posible)
+let menor = 20;               // nota más baja (empieza en 20, el máximo posible)
+
+document.write("<h2>Ejercicio 3: Promedio con control de notas extremas</h2>");
+
+// Pido N y valido que sea mayor a 0
+n = parseInt(prompt("¿Cuántas notas va a ingresar? (N debe ser mayor a 0)"));
+while (isNaN(n) || n <= 0) {
+    alert("Error: N debe ser un número mayor a 0");
+    n = parseInt(prompt("¿Cuántas notas va a ingresar? (N debe ser mayor a 0)"));
+}
+
+// Uso un while con un contador i. El contador solo sube cuando la nota es válida,
+// así si la nota está fuera de rango se vuelve a pedir la misma nota.
+let i = 1;
+while (i <= n) {
+
+    nota = parseFloat(prompt("Ingrese la nota " + i + " de " + n + " (entre 0 y 20)"));
+
+    // Condición anidada para validar y clasificar:
+    // primero valido con (nota < 0) O (nota > 20)
+    if (isNaN(nota) || nota < 0 || nota > 20) {
+        // nota inválida: aviso y no avanzo el contador, entonces se vuelve a pedir
+        alert("Nota fuera de rango, debe estar entre 0 y 20");
+    } else {
+        // la nota es válida, la sumo al total
+        sumaTotal = sumaTotal + nota;
+
+        // ahora clasifico la nota en aprobada o reprobada
+        if (nota >= 14) {
+            sumaAprobados = sumaAprobados + nota;
+            cantAprobados = cantAprobados + 1;
+            document.write("Nota " + i + ": " + nota + " (Aprobado)<br>");
+        } else {
+            sumaReprobados = sumaReprobados + nota;
+            cantReprobados = cantReprobados + 1;
+            document.write("Nota " + i + ": " + nota + " (Reprobado)<br>");
+        }
+
+        // busco la nota más alta y la más baja
+        if (nota > mayor) {
+            mayor = nota;
+        }
+        if (nota < menor) {
+            menor = nota;
+        }
+
+        i = i + 1;   // paso a la siguiente nota
+    }
+}
+
+// Cálculo de los promedios
+let promedioGeneral = sumaTotal / n;
+let porcentajeAprobados = cantAprobados * 100 / n;
+
+// Muestro los resultados
+document.write("<br><b>RESULTADOS</b><br>");
+document.write("Promedio general: " + promedioGeneral.toFixed(2) + "<br>");
+
+// Pregunto si hay aprobados antes de dividir, para no dividir para 0
+if (cantAprobados > 0) {
+    document.write("Promedio aprobados: " + (sumaAprobados / cantAprobados).toFixed(2) + "<br>");
+} else {
+    document.write("Promedio aprobados: no hay aprobados<br>");
+}
+
+// Lo mismo con los reprobados
+if (cantReprobados > 0) {
+    document.write("Promedio reprobados: " + (sumaReprobados / cantReprobados).toFixed(2) + "<br>");
+} else {
+    document.write("Promedio reprobados: no hay reprobados<br>");
+}
+
+document.write("Mayor: " + mayor + ", Menor: " + menor + "<br>");
+document.write("Porcentaje de aprobados: " + porcentajeAprobados.toFixed(1) + "%<br>");
+
+// Si más del 70% aprobó es excelente rendimiento, si no debe mejorar
+if (porcentajeAprobados > 70) {
+    document.write("Resultado: Excelente rendimiento<br>");
+} else {
+    document.write("Resultado: Debe mejorar<br>");
+}
+</script>
