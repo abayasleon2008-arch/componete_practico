@@ -5,7 +5,6 @@
      let fib = 0;
      let primos = 0;
      let suma = 0;
-
      while (contador < 10) {
         if (contador <= 1) {
             fib = contador;
@@ -14,7 +13,6 @@
             a = b;
             b = fib;
         }
-        
         contador++;
         if (esPrimo(fib)) {
              primos++;
@@ -25,12 +23,10 @@
             console.log(fib);
             document.write( " No es primo: " + fib + "<br>");
         }
-
      function esPrimo(numero) {
             if (numero <= 1) {
              return false;
             }
-
             for (let i = 2; i < numero; i++) {
              if (numero % i == 0) {
                      return false;
@@ -38,10 +34,7 @@
                 }
               return true;
         }   
-
-     
-     }
-
+    }
      document.write("La canidad de numeros primos son: " + primos + "<br>")
      document.write("La suma de los numeros primos es: " + suma + "<br>")
      document.write("el promedio de los numeros primos es: " + suma/primos + "<br>")

@@ -1,0 +1,16 @@
+<script>
+    let num1 = Number(prompt("inprese un primer numero"))
+    let num2 = Number(prompt("inprese un segundo numero(sera el exponente del primer numero)"))
+    document.write(num1 + " X " + num2 + " = " + (num1 * num2) + "<br>")
+     document.write("Se presentara la pontencia en multilicaciones sucesivas" + "<br>")
+    let cont = 1;
+    let exp = 1;
+    while(cont < num2){
+        document.write(num1 + " x ")
+        exp = exp * num1
+        cont++;
+    }
+    exp = exp * num1
+    document.write( num1 + " = " + (exp))
+
+</script>
