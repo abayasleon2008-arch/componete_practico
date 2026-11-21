@@ -1,0 +1,23 @@
+<script>
+    let vendedor = prompt("Ingrese en nombre del vendedor")
+    let sueldo = prompt("ingrese el sueldo basico del vendedor")
+    let acumulador = 0;
+    let acumulador1 = 0;
+    while( true){
+        acumulador1 = acumulador;
+        let ventas = prompt("Escriba el total de ventas del mes \n  Toque el boton cancelar para dejar de añadir ventas")
+        acumulador = acumulador + Number(ventas);
+        if (ventas == null){
+            break;
+        }
+       
+    }
+    let comision = acumulador1 * 0.10;
+    let sueldo1 = Number(sueldo) + comision;
+
+        document.write("el vendedor: " + vendedor + "<br>")
+        document.write("Tiene un total de comisiones de: "+ comision + "<br>")
+        document.write("Tiene un sueldo total de: "+ sueldo1 + "<br>")
+
+
+</script>
