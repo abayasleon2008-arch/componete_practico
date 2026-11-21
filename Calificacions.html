@@ -6,27 +6,39 @@
     document.write('D: Regular <br>')
     document.write("E: Deficiente <br>")
     let cont = 10;
-    while(cont> 0){
-        let calificacion = Number(prompt("Escriba la calificacion en el rango establecido (1 - 20 ) \n Terminar el inreso de calificaciones toque la tecla cancelar \n numeos de intentos disponibles " + cont ))
-      
-        switch(true){
-            case calificacion < 10:
-                document.write( calificacion + " su calificacion es: E <br>")
-            case 9 < calificacion < 13:
-                document.write( calificacion + " su calificacion es: D <br>")
-            case 12< calificacion< 16:
-                document.write( calificacion + " su calificacion es: C <br>")
-            case 15< calificacion < 18: 
-                document.write( calificacion + " su calificacion es: B <br>")
-            case 18 < document < 21:
-                document.write( calificacion + " su calificacion es: A <br>" )
-        }
-       
-       cont--;
-    }   
-
-          
-       
    
+while (cont > 0) {
+
+    let calificacion = Number(prompt("Escriba la calificación (0 - 20):"));
+
+    switch (true) {
+
+        case calificacion >= 0 && calificacion <= 9:
+            document.write(calificacion + " su calificación es: E <br>");
+            break;
+
+        case calificacion >= 10 && calificacion <= 12:
+            document.write(calificacion + " su calificación es: D <br>");
+            break;
+
+        case calificacion >= 13 && calificacion <= 15:
+            document.write(calificacion + " su calificación es: C <br>");
+            break;
+
+        case calificacion >= 16 && calificacion <= 17:
+            document.write(calificacion + " su calificación es: B <br>");
+            break;
+
+        case calificacion >= 18 && calificacion <= 20:
+            document.write(calificacion + " su calificación es: A <br>");
+            break;
+
+        default:
+            document.write("Calificación fuera del rango permitido <br>");
+            break;
+    }
+
+    cont--;
+}
 
 </script>
