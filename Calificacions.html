@@ -30,7 +30,11 @@
         // al usuario mediante una ventana emergente.
         // Number() convierte el dato ingresado a un valor numérico.
 
-        let calificacion = Number(prompt("Escriba la calificación (0 - 20):"));
+        let calificacion = prompt("Escriba la calificación (0 - 20):");
+        if (calificacion == null){
+            break
+        }
+        calificacion = Number(calificacion)
 
 
         // switch(true) permite evaluar diferentes condiciones

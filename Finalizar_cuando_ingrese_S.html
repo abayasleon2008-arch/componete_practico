@@ -19,7 +19,7 @@
         // El programa informa que puede finalizar escribiendo
         // la letra S o s, o realizando los 15 ingresos.
 
-        let ingreso = prompt("La ejecución terminará cuando ingrese la letra s de salir o cuando haga 15 ingresos por teclado");
+        let ingreso = prompt("La ejecución terminará cuando ingrese la letra s de salir o cuando haga 15 ingresos por teclado \n intentos realizados" + cont);
 
         // Se utiliza if para comprobar si el usuario ingresó
         // la letra "s" minúscula o "S" mayúscula.
@@ -41,5 +41,10 @@
 
         cont++;
     }
-
+    if (cont = 15){
+        document.write("se han acabado los intentos ")
+    }else{
+        document.write("Ha ingresado la letra s");
+    }
+ 
 </script>

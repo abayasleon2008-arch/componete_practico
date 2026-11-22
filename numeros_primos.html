@@ -1,6 +1,6 @@
 
 <script>
-
+document.write("<h3> numeros primos<h3>")
 // Solicita al usuario que ingrese un número mediante una ventana emergente.
 // prompt() permite recibir información escrita por el usuario.
 let entrada = prompt("Ingrese un número para saber si es primo o no:");
@@ -15,12 +15,12 @@ if (esPrimo(num)) {
 
     // Si la función devuelve true, significa que el número es primo.
     // document.write() muestra el resultado directamente en la página web.
-    document.write(num + " Es primo" + "<br>");
+    document.write(num + "<br>" + " Es primo" + "<br>");
 
 } else {
 
     // Si la función devuelve false, significa que el número no es primo.
-    document.write(num + " No es primo" + "<br>");
+    document.write(num +"<br>" +  " No es primo" + "<br>");
 }
 
 // function permite crear una función llamada esPrimo.
