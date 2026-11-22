@@ -1,3 +1,4 @@
+
 <script>
   let Elc = Number(prompt(
         "[1] Para mostrar los primeros 4 números perfectos\n" +
@@ -23,6 +24,24 @@
                 N++;
             }
             break;
+      case 2: //Esta es la opción dos, que el usuario utilizara para comprobar si el número es perfecto
+           let numero = Number(prompt( 
+                "Ingrese un número para comprobar si es perfecto:" //Definir y leer variable
+            ));
+            let sumaDivisores = 0;//Definir variable
+            for (let i = 1; i < numero; i++) { //Condición Para
+                if (numero % i == 0) { //Condición Si entonces
+                    sumaDivisores = sumaDivisores + i;
+                }//Fin Si
+            }
+            if (numero > 0 && sumaDivisores == numero) {//Condición Si entonces
+                document.write(numero + " es un número perfecto");//Salida por pantalla
+            } else { //Condición Si entonces por falso
+                document.write(numero + " no es un número perfecto"); //Salida por pantalla
+            } //fin Si
+            break; //Salida del case
+        default://Incica que se debe hacer cuando la opción no es correcta
+            document.write("El número ingresado no se encuentra entre los parámetros");//Salida por pantalla
+    }
         
-  
 </script>
